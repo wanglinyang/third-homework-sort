@@ -46,5 +46,9 @@ mod tests {
         let mut arr3 = vec![true, false, true, false];
         bubble_sort(arr3.as_mut_slice(), Some(|a: &bool, b: &bool| a.partial_cmp(b)));
         assert_eq!(arr3, vec![false, false, true, true]);
+
+        let mut arr4 = vec!["ab", "cd", "abc", "ac"];
+        bubble_sort(arr4.as_mut_slice(), Some(|a: &&str, b: &&str| b.partial_cmp(a)));
+        assert_eq!(arr4, vec!["cd", "ac", "abc", "ab"]);
     }
 }
